@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite's Page</title>
+    <link rel="stylesheet" href="./favorites.css">
+    <link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+   
+</head>
+<body>
+<header class="header">
+
+
+
+<!-- Favorites Title -->
+
+ <div class="title">
+    <h1>Favorite Things</h1>
+    <p id="titleP">These are the favorite things that I like. Feel free to use the video game scroll function at the bottom to seek my favorites! </p>
+
+</div> 
+
+
+
+
+
+<!-- Background image -->
+ <div class="bgImg" id="bgImg">
+    <!-- <img src="./Pictures/wp9024458-nature-night-4k-wallpapers.jpg" alt="" class="imgFav" id="imgFav" width="100%" height="100%"> -->
+</div> 
+
+
+
+<!-- Curve Design -->
+ <div 
+class="custom-shape-divider-bottom-1745851337">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+        <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+        <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+    </svg>
+</header>
+</div>
+
+ 
+
+
+    <!-- Navigation -->
+ <nav id="navDesign">
+
+
+    <div class="modes">
+
+        <i class="bi bi-brightness-high-fill" id="toggleDark"></i>
+        </button>
+     
+     </div>
+
+
+
+    <a href="./Index.Html" class="logo"><span>Web Dev</span></a>
+    
+    <div class="links">
+    
+       <a href="./about.html" id="abt">About</a>
+    <a href="#" id="fav">Favorites</a>
+    <a href="./awardProj.html" id="resu">Accomplishments</a>
+    </div>
+
+    
+
+<!-- SEARCH BAR -->
+
+    <div class="search-bar"> 
+        <label for="search" id="searchLabel" class="searchLabel">
+            
+            <i class="bi bi-search" id="icon"></i>
+            <button id="x-btn" class="hideInput">&#215</button>
+
+    <input type="search" id="search" class="hideInput" placeholder="Search">
+    <button id="search-btn" class="hideInput">Search</button>
+  
+
+</label>
+    </div>
+    
+    </nav>
+    
+    <br>
+
+
+
+
+<!-- HEADER COLOR -->
+
+
+ <div class="pictures" id="pictures">
+
+  
+
+    <!-- Hidden Header until click -->
+    <header class="headClr" id="headClr">
+<div class="crossButton" id="crossButton">
+    <button type="button"><i class="bi bi-dpad-fill"></i></button>
+</div>
+
+
+
+<!-- Hidden Header Circle Button -->
+<div class="circleButton" id="crossButton">
+   <button class="circle1"><h2>A</h2></button>
+   <button class="circle2"><h2>B</h2></button>
+</div>
+
+    </header>
+
+    <!-- ============================== -->
+<div class="img0" id="img0">
+</div>
+
+<div id="img1" class="img1 hidden left right">
+    <img src="./Pictures/mobile-legends-chou-iori-yagami-hd-wallpaper-preview-removebg-preview (1).png" alt="chou">
+</div>
+<div id="img2" class="img2 hidden left right">
+    <img src="./Pictures/music-traits-stress-neurosicnece-removebg-preview.png" alt="picture">
+</div>
+<div id="img3" class="img3 hidden left right">
+    <img src="./Pictures/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg" alt="picture">
+</div> 
+
+
+ <div class="myP" id="myPdiv">
+    <p id="myP" class="pTag hiddenP"></p>
+    </div>
+
+</div> 
+
+
+  
+
+<div style="height: 150vh;">
+     <!-- Bg Designs -->
+ <div class="designs">
+    <h3 id="fvrt">Favorite's</h3>  
+
+
+
+<!-- SCROLLABLE IMG's -->
+
+ <div class="buttons"> 
+
+<!-- BUTTON 1 -->
+        <a href="#pictures" class="button1 left"> <button id="button1"  class="button1 prev" type="button" onclick="prevSlide()"> &#10094 </button></a>
+
+<!-- BUTTON 2 -->
+    
+        <a href="#pictures" class="button2 next"><button id="button2" type="button" onclick="nextSlide()">&#10095</button></a>
+   
+</div>
+</div> 
+</div>
+
+<!-- DETAIL DESIGN -->
+<div class="detail-img">
+    
+<div class="detailDesign" id="detailDesign">
+</div>
+
+</div>
+
+
+
+<!-- Awesome Cards Section Start -->
+<div class="awesome-cards-section">
+  <div class="awesome-card gradient-card">
+    <h3>Inspiration</h3>
+    <p>I am really inspired at people I see online programming and by following their helpful tutorials I gained so many new knowledge and techniques! </p>
+  </div>
+  <div class="awesome-card glass-card">
+    <h3>Adventure</h3>
+    <p>Everyday is an adventure. So I want to learn everyday to improve on my weaknesses. </p>
+  </div>
+  <div class="awesome-card shadow-card">
+    <h3>Growth</h3>
+    <p>Challenges help me to grow as a better web developer thats why my group picked game development as our theme in hackaton 2025</p>
+  </div>
+ 
+</div>
+<!-- Awesome Cards Section End -->
+
+<script src="./favorites.js"></script>
+<script src="./darkModeAll.js"></script>
+</body>
+</html>

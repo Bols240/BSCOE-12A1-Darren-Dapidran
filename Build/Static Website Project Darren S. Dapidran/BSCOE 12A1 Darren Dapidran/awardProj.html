@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awards & Projects</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+
+
+html{
+    scroll-behavior: smooth;
+}
+        :root {
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --card-text: #2c3e50;
+            --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --border-color: #3498db;
+            --hover-color: #00b894;
+            --gradient-start: rgba(52, 152, 219, 0.1);
+            --gradient-end: rgba(0, 184, 148, 0.1);
+        }
+
+        body.dark-mode {
+            --card-bg: rgba(30, 34, 39, 0.95);
+            --card-text: #ffffff;
+            --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            --border-color: #00b894;
+            --hover-color: #00d4a4;
+            --gradient-start: rgba(0, 184, 148, 0.15);
+            --gradient-end: rgba(0, 212, 164, 0.15);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            transition: background 2s;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #1a1c20 0%, #2d3436 100%);
+        }
+
+        .award-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .award-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: var(--card-text);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .award-description {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 60px;
+            color: var(--card-text);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .award-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--card-shadow);
+            border: 2px solid var(--border-color);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .award-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(0, 184, 148, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .award-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: #00b894;
+            background: var(--card-bg);
+        }
+
+        .award-card:hover::before {
+            opacity: 1;
+        }
+
+        .award-card.animate-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .award-icon {
+            font-size: 2.5em;
+            color: var(--border-color);
+            margin-bottom: 15px;
+            transition: transform 0.4s ease, color 0.4s ease;
+        }
+
+        .award-card:hover .award-icon {
+            transform: rotate(360deg) scale(1.1);
+            color: #00b894;
+        }
+
+        .award-name {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--card-text);
+            transition: color 0.4s ease;
+        }
+
+        .award-card:hover .award-name {
+            color: #00b894;
+            text-shadow: 0 0 10px rgba(0, 184, 148, 0.3);
+        }
+
+        .award-date {
+            font-size: 0.9em;
+            color: var(--card-text);
+            opacity: 0.8;
+            margin-bottom: 15px;
+            transition: all 0.4s ease;
+        }
+
+        .award-card:hover .award-date {
+            opacity: 1;
+            color: var(--card-text);
+        }
+
+        .award-details {
+            font-size: 1em;
+            line-height: 1.6;
+            color: var(--card-text);
+            transition: all 0.4s ease;
+        }
+
+        .award-card:hover .award-details {
+            transform: translateY(-5px);
+            color: var(--card-text);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Navigation styles */
+        #navDesign {
+            position: sticky;
+            top: 0;
+            padding: 0 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            z-index: 9999;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--card-shadow);
+        }
+
+        .modes {
+            position: absolute;
+            top: 25px;
+            left: 2%;
+            z-index: 1000;
+        }
+
+        .modes i {
+            cursor: pointer;
+            font-size: 25px;
+            color: var(--card-text);
+            transition: all 0.3s ease;
+        }
+
+        .modes i:hover {
+            color: #00b894;
+            text-shadow: 0 0 10px rgba(0, 184, 148, 0.3);
+        }
+
+        nav{
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 0 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        nav a.logo{
+            font-size: 33px;
+            color: #0f2182;
+            font-weight: 600;
+            text-decoration: none;
+            animation: slideR 0.8s ease-in-out;
+        }
+
+        @keyframes slideR {
+            from{
+                opacity: 0.3;
+                transform: translateX(-100px);
+            }
+            to{
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        nav .links a:not(:last-child){
+            margin-right: 20px;
+        }
+
+        .links{
+            position: relative;
+            top: 5px;
+            left: 0;
+            transition: transform 0.1s ease-in-out;
+            animation: slideR 0.8s ease-in-out;
+        }
+
+       .links{
+    position: relative;
+    top: 5px;
+    left: -50%;
+    transition: transform 0.1s ease-in-out;
+    animation: slideR 0.8s ease-in-out;
+    z-index: 1;
+    display: flex;
+    gap: 20px;
+}
+
+.links a{
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+    background: linear-gradient(120deg, transparent, transparent 50%, rgba(15, 33, 130, 0.1) 50%);
+    background-size: 220%;
+    background-position: 100% 0;
+}
+
+.links a:hover {
+    color: #0f2182;
+    background-position: 0 0;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(15, 33, 130, 0.2);
+}
+
+.links a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #0f2182, #3498db);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.links a:hover::before {
+    width: 80%;
+}
+
+.links a:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(15, 33, 130, 0.2);
+}
+
+.links a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: radial-gradient(circle at center, rgba(15, 33, 130, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.links a:hover::after {
+    opacity: 1;
+}
+
+
+        nav .login button{
+            top: 0;
+            padding: 8px 14px;
+            border: none;
+            margin-right: 14px;
+            cursor: pointer;
+            background-color: transparent;
+        }
+
+        nav .login button.signup{
+            background-color: #000;
+            color: #fff;
+            border-radius: 4px;
+            margin-left: 14px ;
+        }
+
+        .login{
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top:25px;
+            left: 50%;
+            gap: 50px;
+            animation: slideR 0.8s ease-in-out;
+        }
+
+        .login button{
+            border: none;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.1s ease-in-out;
+        }
+
+        .login button:hover{
+            transform: scale(1.1);
+        }
+
+        .login button:active{
+            transform:scale(0.9);
+        }
+
+        /* LOGOUT BUTTON */
+        .logout-Dsgn{
+            position: absolute;
+            top: 100px;
+            left: -180%;
+            width: 100%;
+            padding: 100px 200px;
+            background-color: hsla(0, 0%, 23%, 0.808);
+            border-radius: 12px;
+            z-index: 1;
+            animation: popUp 0.3s ease-in-out;
+        }
+
+        .logout-Dsgn #x-Btn{
+            position: relative;
+            top: -80px;
+            left: 160%;
+            border-radius: 50%;
+            height: 50px;
+            transition: background 0.2s ease-in-out;
+        }
+
+        .logout-Dsgn #x-Btn h1{
+            position: relative;
+            top: -20px;
+            font-size: 30px;
+            height: 10px;
+            transition: background 0.2s ease-in-out;
+        }
+
+        .logout-Dsgn #x-Btn:hover, .logout-Dsgn #x-Btn h1:hover{
+            background-color: rgb(211, 43, 43);
+            color: #fff;
+        }
+
+        .logout-Dsgn h2{
+            position: relative;
+            left: -50%;
+            top: -30px;
+            font-family: Arial;
+            font-size: 30px;
+            color: #fff;
+            text-wrap: nowrap;
+        }
+
+        .logout-Dsgn.hidden{
+            display: none;
+        }
+
+        #yes{
+            position: relative;
+            left: -10%;
+            padding: 15px 20px;
+            transition: background 0.2s ease-in-out;   
+        }
+
+        #yes:hover{
+            background: hsla(120, 57%, 56%, 0.808);
+        }
+
+        #no{
+            position: relative;
+            left: 50%;
+            padding: 15px 20px;
+            transition: background 0.2s ease-in-out;   
+        }
+
+        #no:hover{
+            background: hsla(0, 93%, 58%, 0.808);
+        }
+
+        /* PAGE */
+        .page{
+            position: absolute;
+            font-size: large;
+            top: 30%;
+            left: 7%;
+            animation: popUp 2s ease-in-out;
+        }
+
+        @keyframes popUp {
+            0%{
+                opacity: 0.3;
+                transform: scale(0);
+            }
+            50%{
+                opacity: 0.7;
+                transform: scale(1.1);
+            }
+            100%{
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .page span{
+            color: hsl(231, 69%, 55%);
+        }
+
+        header{
+            position: absolute;
+            top: 200px;
+            padding:  0 80px;
+            height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .left{
+            position: relative;
+            top: -100px;
+            left: 3%;
+            width: 700px;
+            text-wrap: nowrap;
+            animation: fadeR 2s ease-in-out;
+        }
+
+        @keyframes fadeR {
+            0%{
+                opacity: 0;
+                width: 0;
+            }
+            100%{
+                width: 700px;
+            }
+        }
+
+        header .left h1 span{
+            color: #0f2182;
+        }
+
+        header .left h1{
+            font-size: 30px;
+        }
+
+        header .left a {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            background: #000;
+            width: 200px;
+            padding: 8px;
+            border-radius: 60px;
+            text-decoration: none;
+        }
+
+        header .left a i{
+            background-color: #fff;
+            font-size: 24px;
+            border-radius: 50%;
+            padding: 8px;
+        }
+
+        header .left a span{
+            color: #fff;
+            margin-left:  10px;
+        }
+
+        .img img{
+            position: relative;
+            top: -450px;
+            left: 48%;
+            width: 15%;
+            height: 200px;
+            border-radius: 50%;
+            animation-delay: 2s ;
+            animation:fadeIn 2.5s ease-in-out, rotate 10s infinite  linear;
+            border: 1px solid #0f2182;
+        }
+
+        @keyframes rotate {
+            to{
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navDesign">
+        <div class="modes">
+            <i class="bi bi-brightness-high-fill" id="toggleDark"></i>
+        </div>
+        <a href="./index.html" class="logo"><span>Web Dev</span></a>
+        <div class="links" id="links">
+            <a href="./about.html" id="abt">About</a>
+            <a href="./favorites.html" id="fav">Favorites</a>
+            <a href="#" id="resu">Accomplishments</a>
+        </div>
+    </nav>
+
+    <!-- Awards Section -->
+
+
+    <div style="display: flex; align-items: center; justify-content: center; gap: 40px; margin: 60px 0 40px 0; flex-wrap: wrap;">
+        <img src="./Pictures/1stPlace.jpeg" alt="1st Place Award" style="width: 340px; height: 340px; object-fit: cover; border-radius: 18px; box-shadow: 0 8px 32px rgba(52,152,219,0.18); border: 3px solid #00b894;">
+        <div style="max-width: 420px; text-align: left;">
+            <h2 style="color: var(--card-text); font-size: 1.7em; margin-bottom: 12px; letter-spacing: 1px;">
+                <i class="bi bi-award" style="color: #00b894; margin-right: 8px;"></i>
+                1st Place Triumph
+            </h2>
+            <p style="color: var(--card-text); font-size: 1.13em; line-height: 1.7;">
+                Captured here is the proud moment of clinching <span style="color: #00b894; font-weight: 600;">1st Place</span> in a highly competitive event. Since we had so many excellent opponents, I must admit that I did not believe we would prevail.  I owe a debt of gratitude to my teammates, without them we could not have produced such a fantastic product as Ed's World.
+            </p>
+        </div>
+    </div>
+
+    
+    <section class="award-section">
+        <h1 class="award-title">Awards & Achievements</h1>
+        <p class="award-description">Recognizing excellence and dedication in various fields</p>
+        
+        <div class="awards-grid">
+            <!-- Award Card 1 -->
+            <div class="award-card">
+                <i class="bi bi-trophy award-icon"></i>
+                <h2 class="award-name">Portfolio</h2>
+                <p class="award-date">2025</p>
+                <p class="award-details">Accomplishing the web portfolio showcasing my skills and the things I want to be good programmer</p>
+            </div>
+
+            <!-- Award Card 2 -->
+            <div class="award-card">
+                <i class="bi bi-code-square award-icon"></i>
+                <h2 class="award-name">Web Development Competition</h2>
+                <p class="award-date">2025</p>
+                <p class="award-details">First place in the regional web development competition showcasing innovative game design and functionality.</p>
+            </div>
+
+            <!-- Award Card 3 -->
+            <div class="award-card">
+                <i class="bi bi-people award-icon"></i>
+                <h2 class="award-name">Hackaton Award</h2>
+                <p class="award-date">2025</p>
+                <p class="award-details">Acknowledged for exceptional skills and team collaboration in web development.</p>
+            </div>
+
+   
+          
+
+        <div class="award-photos" style="margin-top: 60px; text-align: center;"></div>
+            <h2 style="color: var(--card-text); margin-bottom: 25px;">Pictures</h2>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 25px;">
+                <!-- picture 1-->
+                <div style="display: flex; flex-direction: column; align-items: center; width: 220px;">
+                    <img src="./Pictures/picture1.jpg" alt="Award 2" style="width: 220px; height: 220px; object-fit: cover; border-radius: 15px; box-shadow: var(--card-shadow); border: 2px solid var(--border-color);">
+                    <p style="color: var(--card-text); margin-top: 12px; font-size: 1em;">
+                       Me and my friends are talking a picture after the awarding, since this is the last time I will be seeing them because our first year in college is ending.
+                    </p>
+                </div>
+<!-- picture 2 -->
+                <div style="display: flex; flex-direction: column; align-items: center; width: 220px;">
+                    <img src="./Pictures/picture2.jpg" alt="Award 3" style="width: 220px; height: 220px; object-fit: cover; border-radius: 15px; box-shadow: var(--card-shadow); border: 2px solid var(--border-color);">
+                    <p style="color: var(--card-text); margin-top: 12px; font-size: 1em;">
+                       This is when we got the announcement that we have won the first place in hackaton. This will forever be in my greatest memory all the hard work was worthit.
+                    </p>
+                </div>
+            </div>            
+        </div>
+    </section>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 48px; margin-top: 50px;">
+            <!-- Before Card -->
+            <div style="background: var(--card-bg); border-radius: 18px; box-shadow: var(--card-shadow); border: 2px solid var(--border-color); width: 340px; min-height: 220px; display: flex; flex-direction: column; align-items: center; padding: 28px 22px; margin-bottom: 20px; transition: box-shadow 0.3s; position:absolute;
+            top: 1350px; left:6%;">
+                <img src="./Pictures/oldEd.jpg" alt="Before" style="width: 90%; height: 140px; object-fit: cover; border-radius: 12px; margin-bottom: 18px; border: 2px solid #e1e8ed;">
+                <h3 style="color: var(--card-text); margin-bottom: 8px; font-size: 1.2em; letter-spacing: 1px;">
+                    <i class="bi bi-hourglass-split" style="color: #3498db; margin-right: 7px;"></i>
+                    Before
+                </h3>
+                <p style="color: var(--card-text); font-size: 1em; text-align: center;">
+                    This is where it all began this old Ed's world designs brings so many memories of thinking the final foundation of our game prototype after prototype. In this picture we had revamp this ui 30 times since we are not satisfied with the visual.
+                </p>
+            </div>
+            <!-- After Card -->
+            <div style="background: var(--card-bg); border-radius: 18px; box-shadow: var(--card-shadow); border: 2px solid var(--border-color); width: 340px; min-height: 220px; display: flex; flex-direction: column; align-items: center; padding: 28px 22px; margin-bottom: 20px; transition: box-shadow 0.3s; position: absolute; top: 1350px;">
+                <img src="./Pictures/newEd.png" alt="After" style="width: 90%; height: 140px; object-fit: cover; border-radius: 12px; margin-bottom: 18px; border: 2px solid #e1e8ed;">
+                <h3 style="color: var(--card-text); margin-bottom: 8px; font-size: 1.2em; letter-spacing: 1px;">
+                    <i class="bi bi-emoji-laughing" style="color: #00b894; margin-right: 7px;"></i>
+                    After
+                </h3>
+                <p style="color: var(--card-text); font-size: 1em; text-align: center;">
+                    This is the final design of Ed's world. We are so proud of this design since we have put so much effort into this design and we are so happy that we won 1st place in the competition. Without the designer team we could not have achieved this design.
+                </p>
+            </div>
+        </div>
+
+
+    
+
+    <script src="./awardDarkMode.js"></script>
+</body>
+</html>

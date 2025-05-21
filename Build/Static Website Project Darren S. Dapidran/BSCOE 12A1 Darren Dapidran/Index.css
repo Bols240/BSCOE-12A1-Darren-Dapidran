@@ -1,0 +1,500 @@
+
+body{
+    background-color: hsl(0, 12%, 97%);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+     overflow-x: hidden;
+     overflow-y: hidden; 
+}
+
+.designs{
+    position: relative;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.tri1{
+    
+position: relative;
+width: 30%;
+height: 100vh;
+background-color: black;
+border-start-start-radius: 100px;
+border-end-start-radius: 100px ;
+animation: slideL 0.8s ease-in-out, lights 10s infinite linear alternate;
+}
+
+@keyframes slideL {
+   from{
+    opacity: 0.3;
+    transform: translateX(300px);
+   }
+   to{
+    opacity: 1;
+    transform: translateX(0);
+   }
+}
+@keyframes lights {
+    0%{
+       background-color: hsla(246, 63%, 42%, 0.884);
+    }
+
+    50%{
+       background-color: hsl(246, 43%, 47%);
+    }
+
+    100%{
+        background-color: rgb(128, 155, 228);
+    }
+} 
+
+
+/* =================================== */
+nav{
+    position: absolute;
+    top: 0;
+    padding: 0 80px;
+    display: flex;
+align-items: center;
+justify-content: space-between;
+height: 80px;
+}
+
+nav a.logo{
+    font-size: 33px;
+    color: #0f2182;
+    font-weight: 600;
+    text-decoration: none;
+    animation: slideR 0.8s ease-in-out;
+}
+
+@keyframes slideR {
+    from{
+        opacity: 0.3;
+        transform: translateX(-100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+nav .links a:not(:last-child){
+   margin-right: 20px;
+
+}
+
+
+.links{
+    position: relative;
+    top: 5px;
+    left: 20%;
+    transition: transform 0.1s ease-in-out;
+    animation: slideR 0.8s ease-in-out;
+}
+
+.links a{
+
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+}
+
+nav .login button{
+    top: 0;
+    padding: 8px 14px;
+    border: none;
+    margin-right: 14px;
+    cursor: pointer;
+    background-color: transparent;
+
+}
+
+nav .login button.signup{
+    background-color: #000;
+    color: #fff;
+    border-radius: 4px;
+    margin-left: 14px ;
+
+}
+
+.login{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top:25px;
+    left: 50%;
+    gap: 50px;
+    animation: slideR 0.8s ease-in-out;
+
+}
+
+.login button{
+    border: none;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+}
+
+.login button:hover{
+   transform: scale(1.1);
+}
+
+.login button:active{
+    transform:scale(0.9);
+}
+
+/* LOGOUT BUTTON */
+
+.logout-Dsgn{
+    position: absolute;
+    top: 100px;
+    left: -180%;
+    width: 100%;
+    padding: 100px 200px;
+    background-color: hsla(0, 0%, 13%, 0.918);
+    border-radius: 12px;
+    z-index: 1;
+    animation: popUp 0.3s ease-in-out;
+}
+
+.logout-Dsgn #x-Btn{
+    position: relative;
+    top: -80px;
+  left: 160%;
+border-radius: 50%;
+height: 50px;
+transition: background 0.2s ease-in-out;
+
+}
+
+.logout-Dsgn #x-Btn h1{
+    position: relative;
+    top: -20px;
+    font-size: 30px;
+    height: 10px;
+    transition: background 0.2s ease-in-out;
+}
+
+.logout-Dsgn #x-Btn:hover, .logout-Dsgn #x-Btn h1:hover{
+    background-color: rgb(211, 43, 43);
+color: #fff;
+}
+
+.logout-Dsgn h2{
+    position: relative;
+    left: -50%;
+    top: -30px;
+    font-family: Arial;
+    font-size: 30px;
+    color: #fff;
+    text-wrap: nowrap;
+}
+
+.logout-Dsgn.hidden{
+    display: none;
+}
+
+#yes{
+    position: relative;
+    left: -10%;
+    padding: 15px 20px;
+    transition: background 0.2s ease-in-out;   
+}
+
+#yes:hover{
+    background: hsla(120, 57%, 56%, 0.808);
+}
+
+#no{
+    position: relative;
+    left: 50%;
+    padding: 15px 20px;
+    transition: background 0.2s ease-in-out;   
+}
+
+#no:hover{
+background: hsla(0, 93%, 58%, 0.918);
+}
+
+
+
+
+/* PAGE */
+
+.page{
+    position: absolute;
+    font-size: large;
+top: 30%;
+left: 7%;
+animation: popUp 2s ease-in-out;
+}
+
+@keyframes popUp {
+    0%{
+        opacity: 0.3;
+        transform: scale(0);
+    }
+    50%{
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.page span{
+color: hsl(231, 69%, 55%);
+}
+
+
+
+ header{
+    position: absolute;
+    top: 200px;
+    padding:  0 80px;
+    height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+ }
+
+ header .left{
+    position: relative;
+    top: -100px;
+    left: 3%;
+width: 700px;
+text-wrap: nowrap;
+animation: fadeR 2s ease-in-out;
+ }
+
+ @keyframes fadeR {
+    0%{
+        opacity: 0;
+        width: 0;
+    }
+
+
+    100%{
+        width: 700px;
+    }
+
+    
+ }
+
+header .left h1 span{
+    color: #0f2182;
+
+}
+
+header .left h1{
+    font-size: 30px;
+}
+
+header .left a {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    background: #000;
+width: 200px;
+padding: 8px;
+border-radius: 60px;
+text-decoration: none;
+}
+
+header .left a i{
+    background-color: #fff;
+    font-size: 24px;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+header .left a span{
+    color: #fff;
+    margin-left:  10px;
+}
+
+.img img{
+    position: relative;
+    top: -450px;
+    left: 48%;
+    width: 15%;
+    height: 200px;
+border-radius: 50%;
+animation-delay: 2s ;
+animation:fadeIn 2.5s ease-in-out, rotate 10s infinite  linear;
+border: 1px solid #0f2182;
+}
+
+@keyframes rotate {
+    to{
+        transform: rotate(360deg);
+    }
+}
+ 
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+
+
+
+/* MODES */
+
+.modes{
+    position: absolute;
+   top: 25px;
+   left: 2%;
+    z-index: 1000;
+    animation: slideR 0.8s ease-in-out;
+}
+
+#theme-switch{
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.modes i{
+    cursor: pointer;
+    font-size: 25px;
+    position: absolute;
+}
+
+
+/* DARKMODE/LIGHTMODE */
+
+#toggleDark {
+transition: transform 0.2s ease-in-out;
+   cursor: pointer;
+}
+
+#toggleDark:hover {
+    transform: scale(1.1); 
+}
+
+#toggleDark:active {
+    transform: scale(0.9); 
+}
+
+
+/* Responsive Design for Mobile and Tablet Sizes */
+
+/* For devices with a max width of 768px (Tablet) */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    nav {
+        padding: 0 20px;
+        height: 60px;
+    }
+
+    nav a.logo {
+        font-size: 24px;
+    }
+
+    .links {
+        left: 10%;
+    }
+
+    .login {
+        top: 15px;
+        left: 40%;
+        gap: 20px;
+    }
+
+    header .left {
+        width: 100%;
+        left: 5%;
+        top: -50px;
+    }
+
+    header .left h1 {
+        font-size: 24px;
+    }
+
+    header .left a {
+        width: 150px;
+        padding: 6px;
+    }
+
+    .img img {
+        top: -300px;
+        left: 40%;
+        width: 20%;
+        height: auto;
+    }
+
+    .logout-Dsgn {
+        padding: 50px 100px;
+    }
+}
+
+/* For devices with a max width of 480px (Mobile) */
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+
+    nav {
+        padding: 0 10px;
+        height: 50px;
+    }
+
+    nav a.logo {
+        font-size: 18px;
+    }
+
+    .links {
+        display: none; /* Hide links for smaller screens */
+    }
+
+    .login {
+        top: 10px;
+        left: 30%;
+        gap: 10px;
+    }
+
+    header .left {
+        width: 90%;
+        left: 5%;
+        top: 0;
+    }
+
+    header .left h1 {
+        font-size: 18px;
+    }
+
+    header .left a {
+        width: 120px;
+        padding: 4px;
+    }
+
+    .img img {
+        top: -200px;
+        left: 35%;
+        width: 30%;
+        height: auto;
+    }
+
+    .logout-Dsgn {
+        padding: 30px 50px;
+    }
+}
